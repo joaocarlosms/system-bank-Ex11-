@@ -68,4 +68,45 @@ public class ManagerListAccounts {
         }
         return accountSmallerBalance;
     }
+
+    public List<Account> getListAccounts() {
+        return listAccounts;
+    }
+
+    public void setListAccounts(List<Account> listAccounts) {
+        this.listAccounts = listAccounts;
+    }
+    
+    public double calculateTotalDebtorsInBank() {
+        double TotalBalanceDebtors = 0.0;
+        
+        for(Account acc : listAccounts) {
+            if(acc.getBalanceCurrent() < 0) {
+                TotalBalanceDebtors += acc.getBalanceCurrent();
+            }
+        }
+        return TotalBalanceDebtors;
+    }
+    
+    public double calculateTotalDebtors() {
+        double TotalBalanceDebtors = 0.0;
+        
+        for(Account acc : listAccounts) {
+            if(acc.getBalanceCurrent() < 0) {
+                TotalBalanceDebtors += acc.getBalanceCurrent();
+            }
+        }
+        return TotalBalanceDebtors;
+    }
+    
+    public double calculateTotalCreditors() {
+        double TotalBalanceDebtors = 0.0;
+        
+        for(Account acc : listAccounts) {
+            if(acc.getBalanceCurrent() > 0) {
+                TotalBalanceDebtors += acc.getBalanceCurrent();
+            }
+        }
+        return TotalBalanceDebtors;
+    }
 }
